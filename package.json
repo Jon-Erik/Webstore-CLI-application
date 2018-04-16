@@ -1,0 +1,24 @@
+{
+  "name": "webstore-cli-application",
+  "version": "1.0.0",
+  "description": "demo CLI application using node.js and MySQL",
+  "main": "webstoreCustomer.js",
+  "dependencies": {
+    "inquirer": "^5.2.0",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jon-Erik/Webstore-CLI-application.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jon-Erik/Webstore-CLI-application/issues"
+  },
+  "homepage": "https://github.com/Jon-Erik/Webstore-CLI-application#readme"
+}
