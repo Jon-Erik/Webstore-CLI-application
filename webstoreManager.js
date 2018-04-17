@@ -145,7 +145,7 @@ function addProduct() {
 }
 
 function endSession() {
-	console.log("Thanks for your time!");
+	console.log("\nThanks for your time!\n");
 	connection.end();
 }
 

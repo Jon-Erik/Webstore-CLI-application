@@ -21,7 +21,6 @@ function displayItems() {
 						" | Product Name: " + res[i].product_name +
 						" | Price: $" + res[i].price + "\n---------------");
 		}
-		// connection.end();
 		buyItem()
 	})
 }
@@ -65,8 +64,8 @@ function buyItem() {
 			var name = res[0].product_name;
 
 			if (answer.quantityRequested > quantityInStock) {
-				console.log("Sorry, insufficient quantity in stock!");
-				displayItems();
+				console.log("\nSorry, insufficient quantity in stock!\n");
+				inquireContinue();
 			} else {
 				var newStockQuantity = quantityInStock - answer.quantityRequested;
 				connection.query("UPDATE products SET ? WHERE ?",
@@ -81,25 +80,29 @@ function buyItem() {
 					if (err) throw err;
 					var total = price * quantityRequested;
 					console.log("\nThank you for your purchase of " + name + "! Your total is $" + total + ".\n");
-					inquirer.prompt([
-							{
-								message: "Would you like to continue shopping?",
-								type: "confirm",
-								name: "confirmation",
-								default: "true"
-							}
-						]).then(function(answer) {
-							if (answer.confirmation === true ) {
-								displayItems();
-							} else {
-								console.log("Thanks for shopping with us!");
-								connection.end();
-							}
-						})
+					inquireContinue();
 				} )
 			}
 		});	
 	});
 }
 
-displayItems()
+function inquireContinue() {
+	inquirer.prompt([
+		{
+			message: "Would you like to continue shopping?",
+			type: "confirm",
+			name: "confirmation",
+			default: "true"
+		}
+	]).then(function(answer) {
+		if (answer.confirmation === true ) {
+			displayItems();
+		} else {
+			console.log("Thanks for shopping with us!");
+			connection.end();
+		}
+	})
+}
+
+displayItems();
