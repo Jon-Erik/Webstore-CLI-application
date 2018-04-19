@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 	port: 3306,
 	user: "root",
 	password: password,
-	database: "webstore"
+	database: "webstore_db"
 })
 
 function displayItems() {
@@ -79,7 +79,7 @@ function buyItem() {
 				], function(err, res) {
 					if (err) throw err;
 					var total = price * quantityRequested;
-					console.log("\nThank you for your purchase of " + name + "! Your total is $" + total + ".\n");
+					console.log("\nThank you for your purchase of '" + name + "'! Your total is $" + total + ".\n");
 					inquireContinue();
 				} )
 			}
@@ -99,7 +99,7 @@ function inquireContinue() {
 		if (answer.confirmation === true ) {
 			displayItems();
 		} else {
-			console.log("Thanks for shopping with us!");
+			console.log("\nThanks for shopping with us!");
 			connection.end();
 		}
 	})

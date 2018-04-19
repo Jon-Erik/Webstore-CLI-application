@@ -9,7 +9,7 @@ var connection = mysql.createConnection({
 	port: 3306,
 	user: "root",
 	password: password,
-	database: "webstore"
+	database: "webstore_db"
 })
 
 function displayItems() {
@@ -29,7 +29,7 @@ function displayItems() {
 }
 
 function viewLowInventory() {
-	console.log("The following products have an inventory count lower than 5:\n");
+	console.log("\nThe following products have an inventory count lower than 5:\n");
 	connection.query("SELECT * FROM products", function (err, res) {
 		if (err) throw err;
 		for (i = 0; i < res.length; i++) {
