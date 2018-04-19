@@ -34,7 +34,7 @@ function viewLowInventory() {
 		if (err) throw err;
 		for (i = 0; i < res.length; i++) {
 			if (res[i].stock_quantity < 5) {
-				console.log("'" + res[i].product_name + "' has a low stock inventory count of " + res[i].stock_quantity + ".")
+				console.log("'" + res[i].product_name + "' (product ID " + res[i].item_id + ") has a low stock inventory count of " + res[i].stock_quantity + ".")
 				console.log("-------------------");
 			}
 		}
@@ -82,7 +82,7 @@ function addToInventory() {
 					}
 				], function(err) {
 					if (err) throw err;
-					console.log("\nUpdate successful! The new quantity in stock for product " +
+					console.log("\nUpdate successful! The new quantity in stock for product ID " +
 						answers.productID + " is " + newStockQuantity + ".\n");
 					start();
 				})
