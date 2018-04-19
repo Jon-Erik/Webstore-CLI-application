@@ -5,7 +5,7 @@ This repository is demo CLI application which requires a MySQL connection to cre
 
 ### `webstoreCustomer.js`
 
-Running this JavaScript file in Node.js will welcome the customer to the store and list all available products, including their ID number, name, and price, and prompt the customer to enter the ID number of the product they would like to purchase, as well as the quantity of the product. If there is insufficient quantity in stock, the customer will be told this and prompted to whether they would like to continue shopping. If there _is_ sufficient quantity in stock, the customer will be thanked for their purchase and the total cost of their purchase will be indicated.
+Running this JavaScript file in Node.js will welcome the customer to the store and list all available products, including their ID number, name, and price, and prompt the customer to enter the ID number of the product they would like to purchase, as well as the quantity of the product. If there is insufficient quantity in stock, the customer will be told this and prompted whether they would like to continue shopping. If there _is_ sufficient quantity in stock, the customer will be thanked for their purchase and the total cost of their purchase will be indicated.
 
 ### `webstoreManager.js`
 
