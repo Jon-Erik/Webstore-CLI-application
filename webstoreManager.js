@@ -1,9 +1,8 @@
 var mysql = require("mysql");
-
 var inquirer = require("inquirer");
-
 var password = require("./password.js")
 
+//establishes connection with MySQL database with mysql node module
 var connection = mysql.createConnection({
 	host: "localhost",
 	port: 3306,
@@ -12,6 +11,7 @@ var connection = mysql.createConnection({
 	database: "webstore_db"
 })
 
+//displays all items and information from webstore_db
 function displayItems() {
 	connection.query("SELECT * FROM products", function (err, res) {
 		if (err) throw err;
@@ -23,11 +23,11 @@ function displayItems() {
 						" | Quantity in Stock: " + res[i].stock_quantity +
 						"\n---------------");
 		}
-		// connection.end();
 		start();
 	})
 }
 
+//searches database and displays all items with an inventory count less than five
 function viewLowInventory() {
 	console.log("\nThe following products have an inventory count lower than 5:\n");
 	connection.query("SELECT * FROM products", function (err, res) {
@@ -42,8 +42,8 @@ function viewLowInventory() {
 	});	
 }
 
+//allows manager to update the inventory count for a product based on the product's ID
 function addToInventory() {
-	// console.log("add to inventory");
 	inquirer.prompt([
 		{
 			message: "What is the ID number of the product you would like to update?",
@@ -90,6 +90,8 @@ function addToInventory() {
 	});
 }
 
+//Allows manager to enter a new product into the database by entering the product's name,
+//department, price, and inventory. Product IDs are generated automatically.
 function addProduct() {
 	inquirer.prompt([
 		{
@@ -149,6 +151,7 @@ function endSession() {
 	connection.end();
 }
 
+//Displays different options to manager on starting up the program
 function start() {
 	inquirer.prompt([
 		{
