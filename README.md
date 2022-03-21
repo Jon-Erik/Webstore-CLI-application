@@ -1,4 +1,7 @@
 # Webstore-CLI-application
+
+## Coding Bootcamp Project
+
 #### Webstore CLI application using JavaScript, Node.js, and MySQL
 
 This repository is demo CLI application which requires a MySQL connection to create a database table which is accessed and updated by the mysql node module. A schema for creating the database is found in the `sql_schema.sql` file. Prompts in the command line appear using the inquirer node module to mimic an online retail store. Two separate demo files can be run for this repository: a sample customer file (`webstoreCustomer.js`) and a sample manager file (`webstoreManager.js`).
